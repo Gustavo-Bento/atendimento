@@ -1,1 +1,54 @@
-<p>funcionarios works!</p>
+<div class="container bg-light p-4 m-5">
+  <div class="row">
+    <div class="col-7 m-auto">
+      <h1 class="text-center">Funcionarios</h1>
+      <form>
+        <div class="mb-3">
+          <label for="id_funcionario" class="form-label">ID Funcionario</label><br>
+          <input type="number" class="form-control" id="id_funcionario" formControlName="id_funcionario" />
+        </div>
+        <div class="mb-3">
+          <label for="nome_funcionario" class="form-label">Nome</label><br>
+          <input type="text" class="form-control" id="nome_funcionario" formControlName="nome_funcionario" />
+        </div>
+        <div class="mb-3">
+          <label for="cargo" class="form-label">Cargo</label><br>
+          <input type="text" class="form-control" id="cargo" formControlName="cargo" />
+        </div>
+        <button type="submit" class="btn btn-primary"> <!--((click)="save()") salva as informações-->
+          Salvar
+        </button>
+        <br><br>
+      </form>
+    </div>
+    <div class="col-5 m-auto">
+      <h2 class="text-center">Tabela de Funcionarios</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cargo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Mark</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Mark</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Mark</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

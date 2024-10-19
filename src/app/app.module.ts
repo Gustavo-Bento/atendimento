@@ -13,6 +13,7 @@ import { AtendimentosVeiculosComponent } from './atendimentos-veiculos/atendimen
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,10 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
