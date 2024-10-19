@@ -1,1 +1,56 @@
-<p>atendimento works!</p>
+<app-navbar></app-navbar>
+<div class="container bg-light p-4">
+  <div class="row">
+    <div class="col-7 m-auto">
+      <h1 class="text-center">Atendimentos</h1>
+      <form>
+        <div class="mb-3">
+          <label for="atendimento" class="form-label">ID Atendimento</label><br>
+          <input type="text" class="form-control" id="atendimento" formControlName="atendimento" />
+        </div>
+        <div class="mb-3">
+          <label for="id-ocorrencias" class="form-label">ID Ocorrências</label><br>
+          <input type="text" class="form-control" id="id-ocorrencias" formControlName="id-ocorrencias" />
+        </div>
+        <div class="mb-3">
+          <label for="estado" class="form-label">ID Equipe</label><br>
+          <input type="" class="form-control" id="id-equipe" formControlName="id-equipe" />
+        </div>
+        <button type="submit" class="btn btn-primary"> <!--((click)="save()") salva as informações-->
+          Salvar
+        </button>
+        <br><br>
+      </form>
+    </div>
+    <div class="col-5 m-auto">
+      <h2 class="text-center">Tabela de Atendimentos</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Ocorrencias</th>
+            <th scope="col">Equipes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
