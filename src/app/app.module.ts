@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FooterComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
+    AppRoutingModule,
+    NgbModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,19 @@
+{
+  "atendimento": [
+    {
+      "id_atendimento": 1,
+      "id_ocorrencia": 2,
+      "id_equipe": 3
+    },
+    {
+      "id_atendimento": 2,
+      "id_ocorrencia": 3,
+      "id_equipe": 1
+    },
+    {
+      "id_atendimento": 3,
+      "id_ocorrencia": 1,
+      "id_equipe": 2
+    }
+  ]
+}

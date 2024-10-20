@@ -2,20 +2,33 @@
   <div class="row m-auto">
     <div class="col-7">
       <h1 class="text-center">Cadastrar Atendimentos</h1>
-      <form>
+      <form [formGroup]="formGroupAtendimento">
         <div class="mb-3">
-          <label for="atendimento" class="form-label">ID Atendimento</label><br>
-          <input type="text" class="form-control" id="atendimento" formControlName="atendimento" />
+          <label for="id_atendimento" class="form-label">ID Atendimento</label><br>
+          <input type="number" class="form-control" id="id_atendimento" formControlName="id_atendimento" />
+          <small *ngIf="id_atendimento.hasError('required')" class="text-danger p-1">
+            * O id do atendimento não poder estar vazio. Preencha-o!
+          </small>
         </div>
         <div class="mb-3">
-          <label for="id-ocorrencias" class="form-label">ID Ocorrências</label><br>
-          <input type="text" class="form-control" id="id-ocorrencias" formControlName="id-ocorrencias" />
+          <label for="id_ocorrencia" class="form-label">ID Ocorrências</label><br>
+          <input type="number" class="form-control" id="id_ocorrencia" formControlName="id_ocorrencia" />
+          <small *ngIf="id_ocorrencia.hasError('required')" class="text-danger p-1">
+            * O id da ocorrencia não poder estar vazio. Preencha-o!
+          </small>
         </div>
         <div class="mb-3">
-          <label for="estado" class="form-label">ID Equipe</label><br>
-          <input type="" class="form-control" id="id-equipe" formControlName="id-equipe" />
+          <label for="id_equipe" class="form-label">ID Equipe</label><br>
+          <input type="number" class="form-control" id="id_equipe" formControlName="id_equipe" />
+          <small *ngIf="id_equipe.hasError('required')" class="text-danger p-1">
+            * O id da equipe não poder estar vazio. Preencha-o!
+          </small>
         </div>
-        <button type="submit" class="btn btn-primary"> <!--((click)="save()") salva as informações-->
+        <button type="submit"
+        [disabled]="!formGroupAtendimento.valid"
+        class="btn btn-primary"
+        (click)="save()"
+        >
           Salvar
         </button>
         <br><br>
@@ -26,26 +39,27 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            <th scope="col p-2">ID</th>
             <th scope="col">Ocorrencias</th>
             <th scope="col">Equipes</th>
+            <th scope="col" colspan="2">Opções</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
+          <tr *ngFor="let atendimento of atendimento">
+            <td>{{atendimento.id_atendimento}}</td>
+            <td>{{atendimento.id_equipe}}</td>
+            <td>{{atendimento.id_ocorrencia}}</td>
+            <td>
+              <button type="submit" class="btn btn-danger" (click)="delete(atendimento)">
+                Remover
+              </button>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary" (click)="edit(atendimento)">
+                Alterar
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
