@@ -1,1 +1,62 @@
-<p>turnos works!</p>
+<div class="container bg-light p-4 m-5">
+  <div class="row m-auto">
+    <div class="col-7">
+      <h1 class="text-center">Cadastrar Turnos</h1>
+      <form>
+        <div class="mb-3">
+          <label for="id_turno" class="form-label">ID Turno</label><br>
+          <input type="number" class="form-control" id="id_turno" formControlName="id_turno" />
+        </div>
+        <div class="mb-3">
+          <label for="data_hora" class="form-label">Data e hora</label><br>
+          <input type="datetime-local" class="form-control" id="data_hora" formControlName="data_hora" />
+        </div>
+        <div class="mb-3">
+          <label for="id_equipe" class="form-label">ID Equipe</label><br>
+          <input type="number" class="form-control" id="id_equipe" formControlName="id_equipe" />
+        </div>
+        <div class="mb-3">
+          <label for="id_veiculo" class="form-label">ID Veiculo</label><br>
+          <input type="number" class="form-control" id="id_veiculo" formControlName="id_veiculo" />
+        </div>
+        <button type="submit" class="btn btn-primary"> <!--((click)="save()") salva as informações-->
+          Salvar
+        </button>
+        <br><br>
+      </form>
+    </div>
+    <div class="col-5">
+      <h2 class="text-center">Turnos</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Data Hora</th>
+            <th scope="col">ID Equipes</th>
+            <th scope="col">ID Veiculos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Otto</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>Otto</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>Otto</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

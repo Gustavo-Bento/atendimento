@@ -1,1 +1,71 @@
-<p>veiculos works!</p>
+<div class="container bg-light p-4 m-5">
+  <div class="row m-auto">
+    <div class="col-7">
+
+      <h1 class="text-center">Cadastrar Veículo</h1>
+      <form>
+        <div class="mb-3">
+          <label for="id_veiculo" class="form-label">ID Veículo</label><br>
+          <input type="number" class="form-control" id="id_veiculo" formControlName="id_veiculo" />
+        </div>
+        <div class="mb-3">
+          <label for="tipo_veiculo" class="form-label">Tipo de Veiculo</label><br>
+          <input type="text" class="form-control" id="tipo_veiculo" formControlName="tipo_veiculo" />
+        </div>
+        <div class="mb-3">
+          <label for="capacidade" class="form-label">Capacidade</label><br>
+          <input type="number" class="form-control" id="capacidade" formControlName="capacidade" />
+        </div>
+        <div class="mb-3">
+          <label for="tipo_ocorrencia_tratada" class="form-label">Tipo de Ocorrência</label><br>
+          <input type="text" class="form-control" id="tipo_ocorrencia_tratada" formControlName="tipo_ocorrencia_tratada" />
+        </div>
+        <div class="mb-3">
+          <label for="status" class="form-label">Status</label><br>
+          <input type="text" class="form-control" id="status" formControlName="status" />
+        </div>
+        <button type="submit" class="btn btn-primary"> <!--((click)="save()") salva as informações-->
+          Salvar
+        </button>
+        <br><br>
+      </form>
+    </div>
+    <div class="col-5">
+      <h2 class="text-center">Ocorrências</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Capacidade</th>
+            <th scope="col">Ocorrência</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Otto</td>
+            <td>Otto</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>Thornton</td>
+            <td>Thornton</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>Thornton</td>
+            <td>Thornton</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
