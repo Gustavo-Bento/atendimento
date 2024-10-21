@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { EquipesService } from './equipes.service';
 
 @Component({
-  selector: 'equipe',
+  selector: 'equipes',
   templateUrl: './equipes.component.html',
   styleUrls: ['./equipes.component.css'],
 })

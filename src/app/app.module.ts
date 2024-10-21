@@ -9,11 +9,9 @@ import { VeiculosComponent } from './veiculos/veiculos.component';
 import { FuncionariosComponent } from './funcionarios/funcionarios.component';
 import { EquipesComponent } from './equipes/equipes.component';
 import { TurnosComponent } from './turnos/turnos.component';
-import { AtendimentosVeiculosComponent } from './atendimentos-veiculos/atendimentos-veiculos.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -26,7 +24,6 @@ import { HttpClientModule } from '@angular/common/http';
     FuncionariosComponent,
     EquipesComponent,
     TurnosComponent,
-    AtendimentosVeiculosComponent,
     NavbarComponent,
     FooterComponent
   ],

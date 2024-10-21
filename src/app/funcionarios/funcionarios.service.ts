@@ -12,7 +12,7 @@ export class FuncionariosService {
 
   constructor(private http: HttpClient) { }
 
-  getEquipes(): Observable<Funcionarios[]>{
+  getFuniconarios(): Observable<Funcionarios[]>{
     return this.http.get<Funcionarios[]>(this.url);
   }
 

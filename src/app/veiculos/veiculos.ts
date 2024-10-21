@@ -3,5 +3,6 @@ export interface Veiculos{
   tipo_veiculo: String;
   capacidade: Number;
   tipo_ocorrencia_tratada: String;
-  status:['Em andamento','livre']
+  status:['Em andamento','livre'];
+  placa: String;
 }

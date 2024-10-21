@@ -3,14 +3,13 @@
     <div class="col-7">
 
       <h1 class="text-center">Cadastrar Veículo</h1>
-      <form>
-        <div class="mb-3">
-          <label for="id_veiculo" class="form-label">ID Veículo</label><br>
-          <input type="number" class="form-control" id="id_veiculo" formControlName="id_veiculo" />
-        </div>
+      <form [formGroup]="formGroupVeiculos">
         <div class="mb-3">
           <label for="tipo_veiculo" class="form-label">Tipo de Veiculo</label><br>
           <input type="text" class="form-control" id="tipo_veiculo" formControlName="tipo_veiculo" />
+          <small *ngIf="tipo_veiculo.hasError('required')" class="text-danger p-1">
+            * O tipo de veiculo não poder estar vazio. Preencha-o!
+          </small>
         </div>
         <div class="mb-3">
           <label for="capacidade" class="form-label">Capacidade</label><br>
@@ -18,13 +17,27 @@
         </div>
         <div class="mb-3">
           <label for="tipo_ocorrencia_tratada" class="form-label">Tipo de Ocorrência</label><br>
-          <input type="text" class="form-control" id="tipo_ocorrencia_tratada" formControlName="tipo_ocorrencia_tratada" />
+          <input type="text" class="form-control" id="tipo_ocorrencia_tratada"
+            formControlName="tipo_ocorrencia_tratada" />
+          <small *ngIf="tipo_ocorrencia_tratada.hasError('required')" class="text-danger p-1">
+            * O tipo de ocorrência não poder estar vazio. Preencha-o!
+          </small>
         </div>
         <div class="mb-3">
           <label for="status" class="form-label">Status</label><br>
           <input type="text" class="form-control" id="status" formControlName="status" />
+          <small *ngIf="status.hasError('required')" class="text-danger p-1">
+            * O status do veiculo não poder estar vazio. Preencha-o!
+          </small>
         </div>
-        <button type="submit" class="btn btn-primary"> <!--((click)="save()") salva as informações-->
+        <div class="mb-3">
+          <label for="placa" class="form-label">Placa</label><br>
+          <input type="text" class="form-control" id="placa" formControlName="placa" />
+          <small *ngIf="placa.hasError('required')" class="text-danger p-1">
+            * A placa não poder estar vazia. Preencha-a!
+          </small>
+        </div>
+        <button type="submit" [disabled]="!formGroupVeiculos.valid" class="btn btn-primary" (click)="save()">
           Salvar
         </button>
         <br><br>
@@ -40,29 +53,17 @@
             <th scope="col">Capacidade</th>
             <th scope="col">Ocorrência</th>
             <th scope="col">Status</th>
+            <th scope="col">Placa</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>Thornton</td>
-            <td>Thornton</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>Thornton</td>
-            <td>Thornton</td>
+          <tr *ngFor="let veiculo of veiculos">
+            <th scope="row">{{veiculo.id_veiculo}}</th>
+            <td>{{veiculo.tipo_veiculo}}</td>
+            <td>{{veiculo.capacidade}}</td>
+            <td>{{veiculo.tipo_ocorrencia_tratada}}</td>
+            <td>{{veiculo.status}}</td>
+            <td>{{veiculo.placa}}</td>
           </tr>
         </tbody>
       </table>

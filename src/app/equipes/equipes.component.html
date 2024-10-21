@@ -2,16 +2,15 @@
   <div class="row m-auto">
     <div class="col-7">
       <h1 class="text-center">Cadastrar Equipes</h1>
-      <form>
-        <div class="mb-3">
-          <label for="id_equipe" class="form-label">ID Equipe</label><br>
-          <input type="text" class="form-control" id="id_equipe" formControlName="id_equipe" />
-        </div>
+      <form [formGroup]="formGroupEquipes">
         <div class="mb-3">
           <label for="nome_equipe" class="form-label">Nome da Equipe</label><br>
-          <input type="text" class="form-control" id="nome_equipe" formControlName="nome_equipe" />
+          <input type="text" class="form-control" id="nome_equipe" name="nome_equipe" formControlName="nome_equipe" />
+          <small *ngIf="nome_equipe.hasError('required')" class="text-danger p-1">
+            * O nome da equipe não poder estar vazio. Preencha-o!
+          </small>
         </div>
-        <button type="submit" class="btn btn-primary"> <!--((click)="save()") salva as informações-->
+        <button type="submit" [disabled]="!formGroupEquipes.valid" class="btn btn-primary" (click)="save()">
           Salvar
         </button>
         <br><br>
@@ -27,17 +26,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
+          <tr *ngFor="let equipe of equipes">
+            <td>{{equipe.id_equipe}}</td>
+            <td>{{equipe.nome_equipe}}</td>
+            <td>
+              <button type="submit" class="btn btn-danger" (click)="delete(equipe)">
+                Remover
+              </button>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary" (click)="edit(equipe)">
+                Alterar
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

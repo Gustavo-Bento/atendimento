@@ -4,7 +4,6 @@ import { OcorrenciasComponent } from './ocorrencias/ocorrencias.component';
 import { EquipesComponent } from './equipes/equipes.component';
 import { AtendimentoComponent } from './atendimento/atendimento.component' ;
 import { VeiculosComponent } from './veiculos/veiculos.component';
-import { AtendimentosVeiculosComponent } from './atendimentos-veiculos/atendimentos-veiculos.component';
 import { FuncionariosComponent } from './funcionarios/funcionarios.component';
 import { TurnosComponent } from './turnos/turnos.component';
 
@@ -14,7 +13,6 @@ const routes: Routes = [
   {path:'ocorrencias',component: OcorrenciasComponent },
   {path:'funcionarios',component: FuncionariosComponent},
   {path:'veiculos',component: VeiculosComponent},
-  {path:'atendimento-veiculos', component: AtendimentosVeiculosComponent},
   {path:'turnos',component: TurnosComponent}
 ];
 

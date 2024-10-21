@@ -27,7 +27,7 @@ export class AtendimentoComponent {
     private service: AtendimentoService
   ) {
     this.formGroupAtendimento = this.formBuilder.group({
-      id_atendimento: ['', [Validators.required]],
+      id_atendimento: [''],
       id_ocorrencia: ['', [Validators.required]],
       id_equipe: ['', [Validators.required]]
     });

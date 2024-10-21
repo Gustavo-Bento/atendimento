@@ -4,13 +4,6 @@
       <h1 class="text-center">Cadastrar Atendimentos</h1>
       <form [formGroup]="formGroupAtendimento">
         <div class="mb-3">
-          <label for="id_atendimento" class="form-label">ID Atendimento</label><br>
-          <input type="number" class="form-control" id="id_atendimento" formControlName="id_atendimento" />
-          <small *ngIf="id_atendimento.hasError('required')" class="text-danger p-1">
-            * O id do atendimento não poder estar vazio. Preencha-o!
-          </small>
-        </div>
-        <div class="mb-3">
           <label for="id_ocorrencia" class="form-label">ID Ocorrências</label><br>
           <input type="number" class="form-control" id="id_ocorrencia" formControlName="id_ocorrencia" />
           <small *ngIf="id_ocorrencia.hasError('required')" class="text-danger p-1">

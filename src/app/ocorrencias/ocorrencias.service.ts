@@ -12,7 +12,7 @@ export class OcorrenciasService {
 
   constructor(private http: HttpClient) { }
 
-  getEquipes(): Observable<Ocorrencias[]>{
+  getOcorrencias(): Observable<Ocorrencias[]>{
     return this.http.get<Ocorrencias[]>(this.url);
   }
 

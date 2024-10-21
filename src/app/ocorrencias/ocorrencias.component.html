@@ -1,50 +1,59 @@
 <div class="container bg-light p-4 m-5">
   <div class="row m-auto">
-    <div class="col-7">
-
+    <div class="col-6">
       <h1 class="text-center">Cadastrar Ocorrências</h1>
-      <form>
+      <form [formGroup]="formGroupOcorrencias">
         <div class="mb-3">
-          <label for="ocorrencia" class="form-label">Tipo de Ocorrência</label><br>
-          <input type="text" class="form-control" id="ocorrencia" formControlName="id" />
+          <label for="tipo_ocorrencia" class="form-label">Tipo de Ocorrência</label><br>
+          <input type="text" class="form-control" id="tipo_ocorrencia" formControlName="tipo_ocorrencia" />
+          <small *ngIf="tipo_ocorrencia.hasError('required')" class="text-danger p-1">
+            * O nome da equipe não poder estar vazio. Preencha-o!
+          </small>
         </div>
         <div class="mb-3">
-          <label for="estado" class="form-label">Estado da Ocorrência</label><br>
-          <input type="text" class="form-control" id="estado" formControlName="id" />
+          <label for="estado_ocorrencia" class="form-label">Estado da Ocorrência</label><br>
+          <input type="text" class="form-control" id="tipo_ocorrencia" formControlName="tipo_ocorrencia" />
+          <small *ngIf="estado_ocorrencia.hasError('required')" class="text-danger p-1">
+            * O nome da equipe não poder estar vazio. Preencha-o!
+          </small>
         </div>
-        <button type="submit" class="btn btn-primary"> <!--((click)="save()") salva as informações-->
+        <div class="mb-3">
+          <label for="data_ocorrencia" class="form-label">Data da Ocorrência</label><br>
+          <input type="date" class="form-control" id="data_ocorrencia" formControlName="data_ocorrencia" />
+          <small *ngIf="data_ocorrencia.hasError('required')" class="text-danger p-1">
+            * O nome da equipe não poder estar vazio. Preencha-o!
+          </small>
+        </div>
+        <button type="submit"
+        [disabled]="!formGroupOcorrencias.valid"
+        class="btn btn-primary"
+        (click)="save()"
+        >
           Salvar
         </button>
         <br><br>
       </form>
     </div>
-    <div class="col-5">
+    <div class="col-6">
       <h2 class="text-center">Ocorrências</h2>
       <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Ocorrencias</th>
-            <th scope="col">Status</th>
+            <th scope="col">Estado da Ocorrência</th>
+            <th scope="col">Data Ocorrência</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-          </tr>
-        </tbody>
+          <tbody>
+            <tr *ngFor="let ocorrencia of ocorrencias">
+              <td>{{ocorrencia.id_ocorrencia}}</td>
+              <td>{{ocorrencia.tipo_ocorrencia}}</td>
+              <td>{{ocorrencia.estado_ocorrencia}}</td>
+              <td>{{ocorrencia.data_ocorrencia}}</td>
+            </tr>
+          </tbody>
       </table>
     </div>
   </div>
