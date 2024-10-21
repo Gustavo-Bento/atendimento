@@ -24,11 +24,7 @@
             * O nome da equipe não poder estar vazio. Preencha-o!
           </small>
         </div>
-        <button type="submit"
-        [disabled]="!formGroupOcorrencias.valid"
-        class="btn btn-primary"
-        (click)="save()"
-        >
+        <button type="submit" [disabled]="!formGroupOcorrencias.valid" class="btn btn-primary" (click)="save()">
           Salvar
         </button>
         <br><br>
@@ -43,17 +39,28 @@
             <th scope="col">Ocorrencias</th>
             <th scope="col">Estado da Ocorrência</th>
             <th scope="col">Data Ocorrência</th>
+            <th scope="col" colspan="2">Opções</th>
           </tr>
         </thead>
         <tbody>
-          <tbody>
-            <tr *ngFor="let ocorrencia of ocorrencias">
-              <td>{{ocorrencia.id_ocorrencia}}</td>
-              <td>{{ocorrencia.tipo_ocorrencia}}</td>
-              <td>{{ocorrencia.estado_ocorrencia}}</td>
-              <td>{{ocorrencia.data_ocorrencia}}</td>
-            </tr>
-          </tbody>
+        <tbody>
+          <tr *ngFor="let ocorrencia of ocorrencias">
+            <td>{{ocorrencia.id_ocorrencia}}</td>
+            <td>{{ocorrencia.tipo_ocorrencia}}</td>
+            <td>{{ocorrencia.estado_ocorrencia}}</td>
+            <td>{{ocorrencia.data_ocorrencia}}</td>
+            <td>
+              <button type="submit" class="btn btn-danger" (click)="delete(ocorrencia)">
+                Remover
+              </button>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary" (click)="edit(ocorrencia)">
+                Alterar
+              </button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

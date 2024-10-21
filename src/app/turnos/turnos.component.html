@@ -1,15 +1,25 @@
 <div class="container bg-light p-4 m-5">
   <div class="row m-auto">
-    <div class="col-7">
+    <div class="col-6">
       <h1 class="text-center">Cadastrar Turnos</h1>
-      <form>
+      <form [formGroup]="formGroupTurnos">
         <div class="mb-3">
-          <label for="id_turno" class="form-label">ID Turno</label><br>
-          <input type="number" class="form-control" id="id_turno" formControlName="id_turno" />
+          <label for="hora_inicio" class="form-label">Hora Inicio</label><br>
+          <input type="time" class="form-control" id="hora_inicio" formControlName="hora_inicio" />
+          <small *ngIf="hora_fim.hasError('required')" class="text-danger p-1">
+            * O horario de entrada não poder estar vazio. Preencha-o!
+          </small>
         </div>
         <div class="mb-3">
-          <label for="data_hora" class="form-label">Data e hora</label><br>
-          <input type="datetime-local" class="form-control" id="data_hora" formControlName="data_hora" />
+          <label for="hora_fim" class="form-label">Hora Fim</label><br>
+          <input type="time" class="form-control" id="hora_fim" formControlName="hora_fim" />
+          <small *ngIf="hora_fim.hasError('required')" class="text-danger p-1">
+            * O horario de saida não poder estar vazio. Preencha-o!
+          </small>
+        </div>
+        <div class="mb-3">
+          <label for="escala" class="form-label">Escala</label><br>
+          <input type="text" class="form-control" id="escala" formControlName="escala" />
         </div>
         <div class="mb-3">
           <label for="id_equipe" class="form-label">ID Equipe</label><br>
@@ -19,41 +29,44 @@
           <label for="id_veiculo" class="form-label">ID Veiculo</label><br>
           <input type="number" class="form-control" id="id_veiculo" formControlName="id_veiculo" />
         </div>
-        <button type="submit" class="btn btn-primary"> <!--((click)="save()") salva as informações-->
+        <button type="submit" [disabled]="!formGroupTurnos.valid" class="btn btn-primary" (click)="save()">
           Salvar
         </button>
         <br><br>
       </form>
     </div>
-    <div class="col-5">
+    <div class="col-6">
       <h2 class="text-center">Turnos</h2>
       <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Data Hora</th>
-            <th scope="col">ID Equipes</th>
+            <th scope="col">Inicio</th>
+            <th scope="col">Fim</th>
+            <th scope="col">Escala</th>
+            <th scope="col">ID Equipe</th>
             <th scope="col">ID Veiculos</th>
+            <th scope="col" colspan="2">Opções</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>Otto</td>
+          <tr *ngFor="let turno of turnos">
+            <td>{{turno.id_turno}}</td>
+            <td>{{turno.hora_inicio}}</td>
+            <td>{{turno.hora_fim}}</td>
+            <td>{{turno.escala}}</td>
+            <td>{{turno.id_equipe}}</td>
+            <td>{{turno.id_veiculo}}</td>
+            <td>
+              <button type="submit" class="btn btn-danger" (click)="delete(turno)">
+                Remover
+              </button>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary" (click)="edit(turno)">
+                Alterar
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

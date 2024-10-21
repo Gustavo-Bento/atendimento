@@ -27,7 +27,6 @@ export class OcorrenciasComponent {
     private service: OcorrenciasService
   ) {
     this.formGroupOcorrencias = this.formBuilder.group({
-      id_ocorrencia: ['', [Validators.required]],
       tipo_ocorrencia: ['', [Validators.required]],
       estado_ocorrencia: [''],
       data_ocorrencia: ['']

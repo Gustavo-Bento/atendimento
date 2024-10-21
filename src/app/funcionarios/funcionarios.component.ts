@@ -27,9 +27,9 @@ export class FuncionariosComponent {
     private service: FuncionariosService
   ) {
     this.formGroupFuncionarios = this.formBuilder.group({
-      id_atendimento: [''],
-      id_ocorrencia: ['', [Validators.required]],
-      id_equipe: ['', [Validators.required]],
+      id_funcionario: [''],
+      nome: ['', [Validators.required]],
+      cargo: ['', [Validators.required]],
     });
   }
   save() {
@@ -61,13 +61,13 @@ export class FuncionariosComponent {
     this.formGroupFuncionarios.setValue(funcionario);
     this.istEditing = true;
   }
-  
+
   get id_funcionario(): any {
     return this.formGroupFuncionarios.get('id_funcionario');
   }
 
-  get nome_funcionario(): any {
-    return this.formGroupFuncionarios.get('nome_funcionario');
+  get nome(): any {
+    return this.formGroupFuncionarios.get('nome');
   }
 
   get cargo(): any {

@@ -1,12 +1,12 @@
 <div class="container bg-light p-4 m-5">
   <div class="row m-auto">
-    <div class="col-7">
+    <div class="col-6">
       <h1 class="text-center">Cadastrar Funcionarios</h1>
       <form [formGroup]="formGroupFuncionarios">
         <div class="mb-3">
-          <label for="nome_funcionario" class="form-label">Nome</label><br>
-          <input type="text" class="form-control" id="nome_funcionario" formControlName="nome_funcionario" />
-          <small *ngIf="nome_funcionario.hasError('required')" class="text-danger p-1">
+          <label for="nome" class="form-label">Nome</label><br>
+          <input type="text" class="form-control" id="nome" formControlName="nome" />
+          <small *ngIf="nome.hasError('required')" class="text-danger p-1">
             * O nome do funcionario não poder estar vazio. Preencha-o!
           </small>
         </div>
@@ -17,17 +17,13 @@
             * O cargo não poder estar vazio. Preencha-o!
           </small>
         </div>
-        <button type="submit"
-        [disabled]="!formGroupFuncionarios.valid"
-        class="btn btn-primary"
-        (click)="save()"
-        >
+        <button type="submit" [disabled]="!formGroupFuncionarios.valid" class="btn btn-primary" (click)="save()">
           Salvar
         </button>
         <br><br>
       </form>
     </div>
-    <div class="col-5">
+    <div class="col-6">
       <h2 class="text-center">Funcionarios</h2>
       <table class="table table-striped">
         <thead>
@@ -35,13 +31,24 @@
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
             <th scope="col">Cargo</th>
+            <th scope="col" colspan="2">Opções</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let funcionario of funcionarios">
             <th scope="row">{{funcionario.id_funcionario}}</th>
-            <td>{{funcionario.nome_funcionario}}</td>
+            <td>{{funcionario.nome}}</td>
             <td>{{funcionario.cargo}}</td>
+            <td>
+              <button type="submit" class="btn btn-danger" (click)="delete(funcionario)">
+                Remover
+              </button>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-primary" (click)="edit(funcionario)">
+                Alterar
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
